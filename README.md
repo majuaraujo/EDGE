@@ -28,7 +28,7 @@ O Arduino UNO utiliza a biblioteca para mostrar no display a temperatura, os led
 
 Para rodar basta instalar, você pode acessar a simulação que fizemos [neste link](https://www.tinkercad.com/things/1jidRGBnIJg-termometro-digital-gs?sharecode=zQh6-Dvs2_riTTLnnm0ICcUSF7HVRCk4eXIiR7YdQCg) ou então montar o circuito da imagem e rodar o código a seguir:
 
-![MicrosoftTeams-image](https://github.com/felpschneider/vinheria-agnello/assets/89404927/8b1ffbeb-e785-4b10-92ac-4e6b7521da7e)
+![Imagem simulador](https://github.com/majuaraujo/EDGE/assets/83989982/5fa9108f-4f9e-4fc5-954c-2c676340d503)
 
 # Links
 Abaixo você pode acessar os links da apresentação do circuito
