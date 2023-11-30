@@ -95,8 +95,8 @@ void loop()
 	
   if(TemperaturaC<=35)
   	{
-  		digitalWrite(AlertaHipotermia, HIGH);
-  		digitalWrite(AlertaNormal, LOW);
+  	digitalWrite(AlertaHipotermia, HIGH);
+  	digitalWrite(AlertaNormal, LOW);
     	digitalWrite(AlertaFebre, LOW);
     	digitalWrite(AlertaFebreAlta, LOW);
     	digitalWrite(AlertaHipertermia, LOW);
@@ -106,8 +106,8 @@ void loop()
     }
   else if(TemperaturaC>=35 && TemperaturaC<=37.5)
   {
-  		digitalWrite(AlertaHipotermia, LOW);
-  		digitalWrite(AlertaNormal, HIGH);
+  	digitalWrite(AlertaHipotermia, LOW);
+  	digitalWrite(AlertaNormal, HIGH);
     	digitalWrite(AlertaFebre, LOW);
     	digitalWrite(AlertaFebreAlta, LOW);
     	digitalWrite(AlertaHipertermia, LOW);
@@ -118,7 +118,7 @@ void loop()
   else if(TemperaturaC>=37.5 && TemperaturaC<=39.5)
   {
     	digitalWrite(AlertaHipotermia, LOW);
-  		digitalWrite(AlertaNormal, LOW);
+  	digitalWrite(AlertaNormal, LOW);
     	digitalWrite(AlertaFebre, HIGH);
     	digitalWrite(AlertaFebreAlta, LOW);
     	digitalWrite(AlertaHipertermia, LOW);
@@ -130,7 +130,7 @@ void loop()
   else if(TemperaturaC>=39.5 && TemperaturaC<=41)
   {
     	digitalWrite(AlertaHipotermia, LOW);
-  		digitalWrite(AlertaNormal, LOW);
+  	digitalWrite(AlertaNormal, LOW);
     	digitalWrite(AlertaFebre, LOW);
     	digitalWrite(AlertaFebreAlta, HIGH);
     	digitalWrite(AlertaHipertermia, LOW);
@@ -142,7 +142,7 @@ void loop()
   else if(TemperaturaC>=41)
   {
     	digitalWrite(AlertaHipotermia, LOW);
-  		digitalWrite(AlertaNormal, LOW);
+  	digitalWrite(AlertaNormal, LOW);
     	digitalWrite(AlertaFebre, LOW);
     	digitalWrite(AlertaFebreAlta, LOW);
     	digitalWrite(AlertaHipertermia, HIGH);
@@ -152,8 +152,8 @@ void loop()
     }
   else
   {
-    digitalWrite(AlertaHipotermia, LOW);
-  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaHipotermia, LOW);
+  	digitalWrite(AlertaNormal, LOW);
     	digitalWrite(AlertaFebre, LOW);
     	digitalWrite(AlertaFebreAlta, LOW);
     	digitalWrite(AlertaHipertermia, LOW);
