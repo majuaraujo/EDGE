@@ -1,0 +1,124 @@
+1ESPR 
+Maria Julia Araujo Rodrigues - 553384
+
+#include <LiquidCrystal.h>
+
+LiquidCrystal LCD(13,12,11,10,9,8);
+
+int SensorTemperatura=0;
+
+int AlertaHipotermia=1;
+
+int AlertaNormal=2;
+
+int AlertaFebre=3;
+
+int AlertaFebreAlta=4;
+
+int AlertaHipertermia=5;
+
+int Buzzer=6;
+
+int treme=7;
+
+void setup() 
+{
+  	pinMode(AlertaHipotermia, OUTPUT);
+	pinMode(AlertaNormal, OUTPUT);
+  	pinMode(AlertaFebre, OUTPUT);
+  	pinMode(AlertaFebreAlta, OUTPUT);
+  	pinMode(AlertaHipertermia, OUTPUT);
+	LCD.begin(16,2);
+  	pinMode(Buzzer, OUTPUT);
+  	pinMode(treme, OUTPUT);
+  	LCD.print("Ola Professor!!!");
+  	delay(3000);
+  	LCD.clear();
+  	LCD.print("Iniciando...");
+  	delay(1500);
+}
+
+
+void loop() 
+{
+	int SensorTensao=analogRead(SensorTemperatura);
+	float Tensao=SensorTensao;
+	Tensao/=1024;
+	float TemperaturaC=(Tensao+0.15)*100;
+  	LCD.clear();
+    LCD.print("Temperatura:");
+  	LCD.setCursor(0,1);
+	LCD.print(TemperaturaC);
+  	LCD.write(B10110010);
+  	LCD.print("C");
+  	
+	
+  if(TemperaturaC<=35)
+  	{
+  		digitalWrite(AlertaHipotermia, HIGH);
+  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaFebre, LOW);
+    	digitalWrite(AlertaFebreAlta, LOW);
+    	digitalWrite(AlertaHipertermia, LOW);
+      	digitalWrite(Buzzer, 0);
+    	analogWrite(treme, 0);
+
+    }
+  else if(TemperaturaC>=35 && TemperaturaC<=37.5)
+  {
+  		digitalWrite(AlertaHipotermia, LOW);
+  		digitalWrite(AlertaNormal, HIGH);
+    	digitalWrite(AlertaFebre, LOW);
+    	digitalWrite(AlertaFebreAlta, LOW);
+    	digitalWrite(AlertaHipertermia, LOW);
+      	digitalWrite(Buzzer, 0);
+    	analogWrite(treme, 0);
+
+  	}
+  else if(TemperaturaC>=37.5 && TemperaturaC<=39.5)
+  {
+    	digitalWrite(AlertaHipotermia, LOW);
+  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaFebre, HIGH);
+    	digitalWrite(AlertaFebreAlta, LOW);
+    	digitalWrite(AlertaHipertermia, LOW);
+    	tone(Buzzer, 50, 400);
+      	digitalWrite(Buzzer, 1);
+    	analogWrite(treme, 150);
+
+    }
+  else if(TemperaturaC>=39.5 && TemperaturaC<=41)
+  {
+    	digitalWrite(AlertaHipotermia, LOW);
+  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaFebre, LOW);
+    	digitalWrite(AlertaFebreAlta, HIGH);
+    	digitalWrite(AlertaHipertermia, LOW);
+    	tone(Buzzer, 100, 400);
+      	digitalWrite(Buzzer, 1);
+    	analogWrite(treme, 200);
+
+    }
+  else if(TemperaturaC>=41)
+  {
+    	digitalWrite(AlertaHipotermia, LOW);
+  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaFebre, LOW);
+    	digitalWrite(AlertaFebreAlta, LOW);
+    	digitalWrite(AlertaHipertermia, HIGH);
+    	tone(Buzzer, 150, 400);
+      	digitalWrite(Buzzer, 1);
+    	analogWrite(treme, 255);
+    }
+  else
+  {
+    digitalWrite(AlertaHipotermia, LOW);
+  		digitalWrite(AlertaNormal, LOW);
+    	digitalWrite(AlertaFebre, LOW);
+    	digitalWrite(AlertaFebreAlta, LOW);
+    	digitalWrite(AlertaHipertermia, LOW);
+      	digitalWrite(Buzzer, 0);
+    	analogWrite(treme, 0);
+  }
+  	delay(100);
+}
